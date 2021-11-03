@@ -67,7 +67,7 @@ class Index extends Component
 
     public function save(){
         $order = Order::create([
-            'order_id' => 'OD-'.date('Ymd').rand(1111,9999),
+            'no_order' => 'OD-'.date('Ymd').rand(1111,9999),
             'nama_kasir' => auth()->user()->name
         ]);
 
@@ -79,6 +79,7 @@ class Index extends Component
                 'qty'=>$value->qty,
                 'total'=>$value->total,
                 'created_at'=>\Carbon\carbon::now(),
+                'updated_at' => \Carbon\carbon::now()
             );
 
             $orderProduct=OrderProduct::insert($product);
