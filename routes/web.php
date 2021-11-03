@@ -25,4 +25,5 @@ Route::get('/', function () {
 Route::group(['middleware'=>['auth:sanctum', 'verified']], function(){
     Route::view('/dashboard','dashboard')->name('dashboard');
     Route::get('/kasir', [KasirController::class, 'index'])->name('kasir');
+    Route::get('/invoice', [KasirController::class, 'invoice'])->name('invoice');
 });

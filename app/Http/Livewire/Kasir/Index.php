@@ -79,14 +79,14 @@ class Index extends Component
                 'qty'=>$value->qty,
                 'total'=>$value->total,
                 'created_at'=>\Carbon\carbon::now(),
-                'total'=>\Carbon\carbon::now()
             );
 
             $orderProduct=OrderProduct::insert($product);
-            //$deleteTransaction=Transaction::whereIn('id', $value->id)->delete();
+            $deleteTransaction=Transaction::where('id', $value->id)->delete();
         }
-        session()->flash('message', 'Transaksi Berhasil Ditambah');
 
+        // session()->flash('message', 'Transaksi Berhasil Ditambah');
+        return redirect()->to('/invoice');
     }
 
     public function render()

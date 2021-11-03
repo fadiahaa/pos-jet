@@ -17,7 +17,7 @@ class CreateTransactionsTable extends Migration
             $table->id();
             $table->integer('product_id');
             $table->integer('qty');
-            $table->integer('total')->nullable();
+            $table->integer('total')->default(0);
             $table->timestamps();
         });
     }
